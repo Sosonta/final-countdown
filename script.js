@@ -43,3 +43,29 @@ function toggleCardUsed(card, name) {
   }
   localStorage.setItem('usedCards', JSON.stringify([...new Set(usedCards)]));
 }
+// 🔍 Scroll to card on search
+document.getElementById('search-button').addEventListener('click', handleSearch);
+document.getElementById('search-input').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') handleSearch();
+});
+
+function handleSearch() {
+  const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
+  const allCards = document.querySelectorAll('.card');
+
+  let found = false;
+
+  allCards.forEach(card => {
+    const title = card.querySelector('img')?.alt?.toLowerCase();
+    if (title && title.includes(searchTerm)) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('highlight');
+      setTimeout(() => card.classList.remove('highlight'), 2000);
+      found = true;
+    }
+  });
+
+  if (!found) {
+    alert('Card not found!');
+  }
+}
