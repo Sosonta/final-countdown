@@ -1,24 +1,43 @@
 const cardGrid = document.getElementById('card-grid');
 
 // Fetch and render cards from cards.json
+let globalCards = []; // store cards globally
+
 fetch('cards.json')
   .then(res => res.json())
   .then(cards => {
-    // Sort alphabetically by name
+    globalCards = cards;
     cards.sort((a, b) => a.name.localeCompare(b.name));
+    populateAutocomplete(cards);
     renderCards(cards);
   })
   .catch(err => console.error("Could not load cards.json:", err));
+function populateAutocomplete(cards) {
+  const datalist = document.getElementById('card-names');
+  cards.forEach(card => {
+    const option = document.createElement('option');
+    option.value = card.name;
+    datalist.appendChild(option);
+  });
+}
 
 function renderCards(cards) {
+  cardGrid.innerHTML = ''; // clear grid
+
   const usedCards = JSON.parse(localStorage.getItem('usedCards') || '[]');
+  const filter = document.getElementById('filter-select')?.value || 'all';
 
   cards.forEach(cardData => {
     const { name, image_url } = cardData;
 
+    const isUsed = usedCards.includes(name);
+    if ((filter === 'used' && !isUsed) || (filter === 'unused' && isUsed)) {
+      return; // skip card
+    }
+
     const card = document.createElement('div');
     card.classList.add('card');
-    if (usedCards.includes(name)) card.classList.add('used');
+    if (isUsed) card.classList.add('used');
 
     const img = document.createElement('img');
     img.src = image_url;
@@ -69,3 +88,8 @@ function handleSearch() {
     alert('Card not found!');
   }
 }
+
+// re-render cards when filter changes
+document.getElementById('filter-select').addEventListener('change', () => {
+  renderCards(globalCards);
+});

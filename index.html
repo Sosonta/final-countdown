@@ -8,9 +8,21 @@
 </head>
 <body>
   <h1>The Final Countdown</h1>
-<div id="search-container">
-  <input type="text" id="search-input" placeholder="Search for a card..." />
-  <button id="search-button">Search</button>
+<div id="controls">
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search for a card..." list="card-names" />
+    <button id="search-button">Search</button>
+    <datalist id="card-names"></datalist>
+  </div>
+
+  <div id="filter-container">
+    <label for="filter-select">Show:</label>
+    <select id="filter-select">
+      <option value="all">All</option>
+      <option value="used">Used Only</option>
+      <option value="unused">Unused Only</option>
+    </select>
+  </div>
 </div>
   <div id="card-grid"></div>
 
