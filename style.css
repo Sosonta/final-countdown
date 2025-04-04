@@ -59,7 +59,7 @@ h1 {
 
 .card.highlight {
   outline: 4px solid white;
-  animation: outlineFlash 6s ease-out forwards;
+  animation: outlineFlash 6s ease-in-out forwards;
 }
 
 @keyframes outlineFlash {
@@ -67,14 +67,21 @@ h1 {
     outline-color: transparent;
     outline-width: 2px;
   }
-  50% {
+  10% {
+    outline-color: rgba(255, 255, 255, 0.9);
+  }
+  20% {
+    outline-color: white;
+  }
+  80% {
     outline-color: white;
   }
   100% {
     outline-color: transparent;
-    outline-width: 0px;
+    outline-width: 0;
   }
 }
+
 
 #controls {
   display: flex;
