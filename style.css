@@ -176,17 +176,8 @@ h1 {
   margin-left: 0.5rem;  /* adds space if it's inline */
 }
 
-
 #random-button:hover {
   background-color: #333;
-}
-
-#usage-stats {
-  text-align: center;
-  font-size: 1rem;
-  font-family: 'MatrixBook', serif;
-  color: #ccc;
-  margin: 0.75rem 0 1.5rem 0; /* top/right/bottom/left spacing */
 }
 
 #export-button,
@@ -198,6 +189,7 @@ h1 {
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  margin-left: 0.5rem;  /* adds space if it's inline */
 }
 
 #export-button:hover,
@@ -205,3 +197,10 @@ h1 {
   background-color: #333;
 }
 
+#usage-stats {
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'MatrixBook', serif;
+  color: #ccc;
+  margin: 0.75rem 0 1.5rem 0; /* top/right/bottom/left spacing */
+}
