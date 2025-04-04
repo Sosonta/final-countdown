@@ -121,3 +121,42 @@ function updateUsageStats() {
   const statsText = `Used ${usedCards.length} / ${totalCards} cards (${percent}%)`;
   document.getElementById('usage-stats').textContent = statsText;
 }
+
+document.getElementById('export-button').addEventListener('click', () => {
+  const usedCards = JSON.parse(localStorage.getItem('usedCards') || '[]');
+  const blob = new Blob([JSON.stringify(usedCards, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'used_cards.json';
+  a.click();
+
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('import-button').addEventListener('click', () => {
+  document.getElementById('import-file').click();
+});
+
+document.getElementById('import-file').addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (!Array.isArray(imported)) throw new Error("Invalid file format");
+
+      // Save to localStorage
+      localStorage.setItem('usedCards', JSON.stringify(imported));
+      renderCards(globalCards);
+      updateUsageStats();
+      alert('Used card data imported successfully!');
+    } catch (err) {
+      alert('Failed to import: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+});
