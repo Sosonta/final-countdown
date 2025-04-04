@@ -43,18 +43,26 @@ h1 {
 #search-input {
   padding: 0.5rem;
   width: 250px;
-  border-radius: 5px;
-  border: none;
   font-size: 1rem;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 2px;
 }
 
 #search-button {
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
   font-size: 1rem;
-  border-radius: 5px;
+  background-color: #222;
+  color: white;
   border: none;
+  border-radius: 2px;
   cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: #333;
 }
 
 .card.highlight {
@@ -97,13 +105,19 @@ h1 {
 #filter-container select {
   padding: 0.5rem;
   font-size: 1rem;
-  border-radius: 5px;
+  background-color: #222;
+  color: white;
   border: none;
-  height: 40px; /* Optional: matches the search input/button height */
+  border-radius: 2px;
+  height: 40px;
+  box-sizing: border-box;
 }
 
 #filter-container label {
   font-size: 1rem;
+  line-height: 40px;
+  color: white;
 }
+
 
 
