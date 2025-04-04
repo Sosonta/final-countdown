@@ -7,6 +7,10 @@
 
 h1 {
   font-family: 'MatrixSmallCaps', serif;
+  font-size: 5rem; /* Go big! Try 6rem or 7rem too */
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 body {
