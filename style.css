@@ -59,19 +59,27 @@ h1 {
 }
 
 .card.highlight {
-  outline: 2px solid white;
-  animation: fadeOutline 2s ease-out forwards;
+  position: relative;
+  z-index: 1;
+  animation: pulseHighlight 2.8s ease-out forwards;
 }
 
-@keyframes fadeOutline {
+@keyframes pulseHighlight {
   0% {
-    outline-color: white;
-    outline-width: 2px;
-    outline-style: solid;
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    outline: none;
+  }
+  10% {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.9);
+  }
+  30% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 1);
+  }
+  60% {
+    box-shadow: 0 0 15px 8px rgba(255, 255, 255, 0.6);
   }
   100% {
-    outline-color: transparent;
-    outline-width: 0;
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
   }
 }
 
