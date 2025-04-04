@@ -10,6 +10,7 @@ fetch('cards.json')
     cards.sort((a, b) => a.name.localeCompare(b.name));
     populateAutocomplete(cards);
     renderCards(cards);
+    updateUsageStats();
   })
   .catch(err => console.error("Could not load cards.json:", err));
 function populateAutocomplete(cards) {
@@ -61,6 +62,7 @@ function toggleCardUsed(card, name) {
     if (index > -1) usedCards.splice(index, 1);
   }
   localStorage.setItem('usedCards', JSON.stringify([...new Set(usedCards)]));
+  updateUsageStats();
 }
 // 🔍 Scroll to card on search
 document.getElementById('search-button').addEventListener('click', handleSearch);
@@ -111,3 +113,11 @@ void randomCard.offsetWidth; // force reflow to restart animation
 randomCard.classList.add('random-highlight');
 });
 
+function updateUsageStats() {
+  const usedCards = JSON.parse(localStorage.getItem('usedCards') || '[]');
+  const totalCards = globalCards.length;
+  const percent = totalCards > 0 ? ((usedCards.length / totalCards) * 100).toFixed(2) : 0;
+
+  const statsText = `Used ${usedCards.length} / ${totalCards} cards (${percent}%)`;
+  document.getElementById('usage-stats').textContent = statsText;
+}
