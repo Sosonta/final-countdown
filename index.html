@@ -7,6 +7,23 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div id="reset-menu">
+  <select id="reset-select">
+    <option value="">Reset</option>
+    <option value="used">Mark All Used</option>
+    <option value="unused">Mark All Unused</option>
+  </select>
+</div>
+
+<!-- Confirmation Popup -->
+<div id="confirm-popup" class="hidden">
+  <div class="popup-content">
+    <p>Are you sure?</p>
+    <button id="confirm-reset">Reset</button>
+    <button id="cancel-reset">Nevermind</button>
+  </div>
+</div>
+
   <h1>Final Countdown</h1>
 <div id="usage-stats">Used 0 / 0 cards</div>
 <div id="controls">

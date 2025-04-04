@@ -160,3 +160,32 @@ document.getElementById('import-file').addEventListener('change', (event) => {
   };
   reader.readAsText(file);
 });
+let resetAction = null;
+
+document.getElementById('reset-select').addEventListener('change', (e) => {
+  const value = e.target.value;
+  if (value === 'used' || value === 'unused') {
+    resetAction = value;
+    document.getElementById('confirm-popup').classList.remove('hidden');
+  }
+});
+
+document.getElementById('cancel-reset').addEventListener('click', () => {
+  document.getElementById('confirm-popup').classList.add('hidden');
+  document.getElementById('reset-select').value = ''; // reset dropdown
+  resetAction = null;
+});
+
+document.getElementById('confirm-reset').addEventListener('click', () => {
+  const allNames = globalCards.map(card => card.name);
+  const usedCards = resetAction === 'used' ? allNames : [];
+
+  localStorage.setItem('usedCards', JSON.stringify(usedCards));
+  renderCards(globalCards);
+  updateUsageStats();
+
+  document.getElementById('confirm-popup').classList.add('hidden');
+  document.getElementById('reset-select').value = '';
+  resetAction = null;
+});
+
