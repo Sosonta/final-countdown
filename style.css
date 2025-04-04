@@ -85,8 +85,6 @@ h1 {
   }
 }
 
-
-
 #controls {
   display: flex;
   flex-wrap: wrap;
@@ -96,10 +94,22 @@ h1 {
   margin-bottom: 1rem;
 }
 
+#filter-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 #filter-container select {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 5px;
   border: none;
+  height: 40px; /* Optional: matches the search input/button height */
 }
+
+#filter-container label {
+  font-size: 1rem;
+}
+
 
