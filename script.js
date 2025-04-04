@@ -78,7 +78,7 @@ function handleSearch() {
     const title = card.querySelector('img')?.alt?.toLowerCase();
     if (title && title.includes(searchTerm)) {
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      card.classList.add('highlight');
+      card.classList.add('search-highlight');
       found = true;
     }
   });
@@ -106,6 +106,8 @@ document.getElementById('random-button').addEventListener('click', () => {
 
   const randomCard = unusedCards[Math.floor(Math.random() * unusedCards.length)];
   randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  randomCard.classList.add('highlight');
+  randomCard.classList.remove('random-highlight'); // reset if it's still animating
+void randomCard.offsetWidth; // force reflow to restart animation
+randomCard.classList.add('random-highlight');
 });
 
