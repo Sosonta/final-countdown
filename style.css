@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'MatrixSmallCaps';
+  src: url('fonts/Matrix-Regular-SmallCaps.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'MatrixSmallCaps', serif;
+}
+
 body {
   font-family: sans-serif;
   background: #111;
