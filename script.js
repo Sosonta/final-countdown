@@ -79,7 +79,6 @@ function handleSearch() {
     if (title && title.includes(searchTerm)) {
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       card.classList.add('highlight');
-      setTimeout(() => card.classList.remove('highlight'), 2000);
       found = true;
     }
   });
