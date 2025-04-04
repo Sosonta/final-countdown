@@ -65,22 +65,26 @@ h1 {
 @keyframes outlineFlash {
   0% {
     outline-color: transparent;
-    outline-width: 2px;
+    outline-width: 4px;
   }
   10% {
     outline-color: rgba(255, 255, 255, 0.9);
+    outline-width: 4px;
   }
   20% {
     outline-color: white;
+    outline-width: 4px;
   }
   80% {
     outline-color: white;
+    outline-width: 4px;
   }
   100% {
     outline-color: transparent;
-    outline-width: 0;
+    outline-width: 0px;
   }
 }
+
 
 
 #controls {
