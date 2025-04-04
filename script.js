@@ -92,3 +92,20 @@ function handleSearch() {
 document.getElementById('filter-select').addEventListener('change', () => {
   renderCards(globalCards);
 });
+document.getElementById('random-button').addEventListener('click', () => {
+  const usedCards = JSON.parse(localStorage.getItem('usedCards') || '[]');
+
+  // Find all card elements that are not marked as used
+  const unusedCards = Array.from(document.querySelectorAll('.card'))
+    .filter(card => !card.classList.contains('used'));
+
+  if (unusedCards.length === 0) {
+    alert("No unused cards left!");
+    return;
+  }
+
+  const randomCard = unusedCards[Math.floor(Math.random() * unusedCards.length)];
+  randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  randomCard.classList.add('highlight');
+});
+
