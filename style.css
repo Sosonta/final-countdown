@@ -59,8 +59,20 @@ h1 {
 }
 
 .card.highlight {
-  outline: 3px solid gold;
-  transition: outline 0.3s ease;
+  outline: 2px solid white;
+  animation: fadeOutline 2s ease-out forwards;
+}
+
+@keyframes fadeOutline {
+  0% {
+    outline-color: white;
+    outline-width: 2px;
+    outline-style: solid;
+  }
+  100% {
+    outline-color: transparent;
+    outline-width: 0;
+  }
 }
 
 #controls {
