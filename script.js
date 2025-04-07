@@ -40,10 +40,16 @@ function renderCards(cards) {
     card.classList.add('card');
     if (isUsed) card.classList.add('used');
 
-    const img = document.createElement('img');
-    img.src = image_url;
-    img.alt = name;
-    img.title = name;
+const img = document.createElement('img');
+img.alt = name;
+img.title = name;
+img.style.opacity = 0;
+
+img.onload = () => {
+  img.style.opacity = 1;
+};
+
+img.src = image_url;
 
     card.appendChild(img);
     card.addEventListener('click', () => toggleCardUsed(card, name));
