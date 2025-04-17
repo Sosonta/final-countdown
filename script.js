@@ -194,4 +194,3 @@ document.getElementById('confirm-reset').addEventListener('click', () => {
   document.getElementById('reset-select').value = '';
   resetAction = null;
 });
-

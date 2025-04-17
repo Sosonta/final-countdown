@@ -261,3 +261,15 @@ h1 {
   background: #555;
 }
 
+#card-container {
+  width: 100%;            /* 🔧 ensure full width */
+}
+
+#card-grid {
+  width: 100%;            /* 🔧 expand with container */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 1rem;
+  box-sizing: border-box; /* 🔧 prevents padding from shrinking width */
+}
