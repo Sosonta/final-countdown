@@ -26,6 +26,66 @@
 
   <h1>Final Countdown</h1>
 <div id="usage-stats">Used 0 / 0 cards</div>
+<div id="filter-bar">
+
+<!-- Clear Filters -->
+<div class="filter-block">
+  <label>&nbsp;</label> <!-- invisible label spacer -->
+  <button id="clear-filters">Clear</button>
+</div>
+
+  <!-- Name Search -->
+  <div class="filter-block">
+    <label for="name-filter">Name</label>
+    <input type="text" id="name-filter" placeholder="Search name">
+  </div>
+
+  <!-- Effect Search -->
+  <div class="filter-block">
+    <label for="effect-filter">Effect</label>
+    <input type="text" id="effect-filter" placeholder="Search effect">
+  </div>
+
+  <!-- Card Type -->
+  <div class="filter-block">
+    <label>Card</label>
+    <div class="dropdown" id="card-type-filter"></div>
+  </div>
+
+  <!-- Level/Rank/Link -->
+  <div class="filter-block">
+    <label>Level/Rank/Link</label>
+    <div class="dropdown" id="level-filter"></div>
+  </div>
+
+  <!-- Type (Race) -->
+  <div class="filter-block">
+    <label>Type</label>
+    <div class="dropdown" id="race-filter"></div>
+  </div>
+
+  <!-- Attribute -->
+  <div class="filter-block">
+    <label>Attribute</label>
+    <div class="dropdown" id="attribute-filter"></div>
+  </div>
+
+<!-- Combined ATK/DEF -->
+<div class="filter-block">
+  <div class="range-inputs">
+    <div>
+      <small>ATK</small>
+      <input type="number" id="atk-min" placeholder="Min">
+      <input type="number" id="atk-max" placeholder="Max">
+    </div>
+    <div>
+      <small>DEF</small>
+      <input type="number" id="def-min" placeholder="Min">
+      <input type="number" id="def-max" placeholder="Max">
+    </div>
+  </div>
+</div>
+</div>
 <div id="controls">
   <div id="search-container">
     <input type="text" id="search-input" placeholder="Search for a card..." list="card-names" />

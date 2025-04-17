@@ -273,3 +273,81 @@ h1 {
   padding: 1rem;
   box-sizing: border-box; /* 🔧 prevents padding from shrinking width */
 }
+
+#filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.filter-block {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.filter-block label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.filter-block input[type="text"],
+.filter-block input[type="number"] {
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+  width: 150px;
+}
+
+.range-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.range-inputs div {
+  display: flex;
+  flex-direction: column;
+}
+
+.range-inputs small {
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-bottom: 0.25rem;
+}
+
+.dropdown {
+  background-color: #222;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 2px;
+  min-width: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #333;
+}
+
+#clear-filters {
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 0 0.6rem; /* Horizontal padding only */
+  height: 25px;
+  line-height: 25px;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#clear-filters:hover {
+  background-color: #333;
+}
